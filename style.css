@@ -1,0 +1,133 @@
+/* Reset styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header styles */
+
+header {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.header-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.header-description {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+}
+
+/* Main content styles */
+
+main {
+    position: relative;
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: white;
+    min-height: 200vh; /* Add this line */
+}
+
+.intro-paragraph {
+    flex: 1;
+}
+
+.intro-paragraph-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro-paragraph-image img {
+    max-width: 50%;
+    height: auto;
+}
+
+/* Media queries for responsive design */
+
+@media (max-width: 1024px) {
+    .intro-paragraph-image {
+        flex-direction: column;
+    }
+
+    .intro-paragraph-image img {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .intro-paragraph-image {
+        display: none;
+    }
+}
+
+.custom-css-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 20px;
+}
+
+.custom-css-left .intro-paragraph-image.left {
+    order: 1;
+}
+
+.custom-css-left .intro-paragraph {
+    order: 2;
+}
+
+
+.custom-css-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 20px;
+}
+
+.custom-css-right .intro-paragraph-image.right {
+    order: 2;
+}
+
+.custom-css-right .intro-paragraph {
+    order: 1;
+}
+
+
+@media (max-width: 768px) {
+    .intro-paragraph-image {
+        flex-direction: column;
+    }
+
+    .intro-paragraph-image img {
+        max-width: 100%;
+    }
+
+    .custom-css-left .intro-paragraph-image.left,
+    .custom-css-right .intro-paragraph-image.right {
+        order: 1;
+    }
+
+    .custom-css-left .intro-paragraph,
+    .custom-css-right .intro-paragraph {
+        order: 2;
+    }
+}

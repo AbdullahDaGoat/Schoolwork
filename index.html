@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artifact Website</title>
+    <style type="text/css" media="all">
+    /* Reset styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Header styles */
+    header {
+      position: relative;
+      min-height: 100vh;
+    }
+
+    .header-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+.header-description {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.header-description::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    backdrop-filter: blur(20px); /* Adjust the blur radius as needed */
+    -webkit-backdrop-filter: blur(50px);
+    -moz-backdrop-filter: blur(50px);
+    -o-backdrop-filter: blur(50px);
+    -ms-backdrop-filter: blur(50px);
+    filter: blur(50px);
+    opacity: 1; /* Adjust the opacity to blend the blur with the image */
+    background-image: url("header-image.jpg"); /* Replace with your header image */
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.header-description p {
+    position: relative;
+    z-index: 1;
+}
+    /* Main content styles */
+    main {
+      position: relative;
+    }
+
+    .intro {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      background-color: white;
+      min-height: 200vh;
+      align-items: center;
+      position: relative;
+    }
+
+    .intro-paragraph {
+      display: flex;
+      gap: 2rem;
+      width: 80%;
+      justify-content: space-between;
+      align-items: flex-start;
+      position: relative;
+    }
+
+    .intro-paragraph-image {
+        width: 30%;
+      padding-top: 2rem;
+    }
+
+    .intro-paragraph-image img {
+      max-width: 100%;
+    }
+
+
+    .intro-paragraph-text {
+      flex: 1;
+      padding-top: 2rem;
+      margin-left: 2rem;
+    }
+
+
+ /* Custom CSS classes */
+
+    .custom-css-left .intro-paragraph {
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+
+    .custom-css-left .intro-paragraph-text {
+        margin-left: 0;
+      margin-right: 2rem;
+    }
+
+    .custom-css-right .intro-paragraph {
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+    }
+
+
+    .vision-button {
+background-color: orange;
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+position: fixed;
+bottom: 20px;
+left: 42%;
+}
+
+.vision-button:hover {
+    transform:  scale(1.05);
+}
+
+.modal {
+display: none;
+position: fixed;
+z-index: 1;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+background-color: #fefefe;
+margin: 15% auto;
+padding: 20px;
+border: 1px solid #888;
+width: 80%;
+max-width: 800px;
+height: 60%;
+overflow-y: scroll;
+border-radius: 10px; /* Add this line to round the edges */
+}
+
+.close {
+color: #aaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+color: black;
+text-decoration: none;
+cursor: pointer;
+}
+
+hr {
+border: 0;
+height: 1px;
+background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1));
+margin: 1rem 0;
+}
+
+.vision-text {
+max-height: 80%;
+overflow-y: scroll;
+}
+
+
+    .custom-css-right .intro-paragraph-text {
+        margin-right: 0;
+      margin-left: 2rem;
+    }
+
+    /* Media queries for responsive design */
+    @media (max-width: 1024px) {
+      .intro {
+        align-items: flex-start;
+      }
+
+      .intro-paragraph {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+      }
+
+      .custom-css-left .intro-paragraph,
+      .custom-css-right .intro-paragraph {
+        align-items: flex-start;
+      }
+
+      .intro-paragraph-image img {
+        max-width: 50%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .intro-paragraph-image {
+        display: none;
+      }
+    }
+
+
+    /* Add the following class to your CSS */
+/* Remove the position: sticky and overflow-y: hidden properties from the .parallax class */
+
+    .takeaways {
+  font-size: 3rem;
+  text-align: center;
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  padding-top: 2rem
+}
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="header-image.jpg" alt="Header Image" class="header-image">
+        <div class="header-description">
+            <p>This website has been created by Abdullah Khan, who wishes to share his vision based on his learnings from the NBE3UO-A
+            course. The accompanying image represents his visualization of a story called "Those Who Run in the Sky," incorporating
+            references to the springtime meetings and the frigid mountains inhabited by Inpuak. The depiction of spring evokes a
+            sense of sanctuary, while the portrayal of the cold mountains reminds the creator of the adventures experienced while
+            reading the story and throughout the course as a whole. Special thanks are extended to Ms. Twizere for contributing to
+            this remarkable journey. We kindly request that you scroll down slowly to enhance your browsing experience.</p>
+            <br/>
+            <p>This website will cover the following information:</p>
+                <ol>
+                    <li>The Lessons and Takewaways I learnt from this class in relation to Indigenouse Studies</li>
+                    <li>What my vision is for this website</li>
+                </ol>
+        </div>
+    </header>
+
+    <main>
+        <section class="intro">
+<h1 class="takeaways">Takeaways</h1>
+            <div class="intro-paragraph custom-css-left">
+                <div class="intro-paragraph-image left">
+                    <img src="Book1.jpg" width="500" height="500" alt="other Image">
+                </div>
+                <div class="intro-paragraph-text">
+                    <p>One of the first books that I read in <strong>this course was</strong> the story written by Aviaq Johnson “Those Who Run in the Sky.”
+                    This was the book that created the depiction of the image above that you initially saw. This book taught me a lot about
+                    reverence and how Inuit culture specifically behaves and uses stories to deepen their connections and love. It brought
+                    together really highlighted moments of how Indigenous stories have lots of deeper meaning and connections and how not
+                    everything is as black and white. It was one of the stories that I read and actually thought was impressive because it
+                    showed how Indigenous authors can use storytelling to create actual heartfelt books that people may enjoy reading
+                    further, which changed my perspective on how I viewed Indigenous stories and authors! Aside from reverence, I learnt
+                    interconnectedness and how everything is all connected to the land, water, and amazing mother nature. I learnt how
+                    resilience is brought in and how it's highly valued among Indigenous communities, especially that of the Inuit culture!
+                    The book also touched base on clear instances of assimilation done through references that geared indirectly towards
+                    European colonization! Growing up in a predominantly settler community, Indigenous stories and perspectives were rarely part of my life
+                    experience until taking Contemporary Aboriginal Voices this semester. Through analyzing Aviaq Johnston's profoundly
+                    moving novel Those Who Run in the Sky, I gained crucial insights into Inuit epistemologies and came to a deeper
+                    understanding of my own role and responsibilities.</p>
+
+                    <br/>
+
+                    <>I was struck by how Johnston's vivid depictions of Inuit spirituality allowed readers to experience ancestral wisdoms
+                    from the inside out. By following Pitu's journey of personal growth through facing relentless hardship, I gleaned
+                    profound life lessons about resilience, gratitude, and embracing communal responsibilities. Pitu's maturation from a
+                    disrespectful youth to a young man of profound reverence holds valuable mirrors for self-reflection. Though his beloved
+                    Saima married another, Pitu embodied ancestral teachings by respecting their union rather than indulging in jealousy—a
+                    lesson not lost on me regarding respecting relationships. Discussing these insights with my parents and friends revealed gaps in our collective knowledge about Indigenous
+                    realities. I realized how easy it can be to drift through life ignorant of oppression's intergenerational impacts right
+                    here in our own backyards. This course lit a fire within me to embrace “Reconcili-ACTION” through learning more about
+                    our territory's original stewardship nations, championing Indigenous leadership, advocating for clean water, and
+                    demanding land back. Going forward, I vow to cultivate reverence by embracing humility, engaging local knowledge keepers
+                    respectfully, and embodying responsibilities as a newcomer through concrete allyship and environmental stewardship.</p>
+
+                    <br/>
+
+                    <p>In conclusion, this book made me understand the true value of life and the basic necessities that we take for granted.
+                    It also made me open my vision on Indigenous assimilation and historical issues. Previously, I was blinded-sighted and
+                    annoyed by the constant talk of it, but now I deeply reflected and even used some of the books' lessons as inspiration
+                    to my own learning. I shared many of these stories with my online friends but also my family, showcasing to them how
+                    lucky we are not to have to deal with the extremely hard hardships others might have to go through!</p>
+                </div>
+            </div>
+
+            <div class="intro-paragraph custom-css-right">
+                <div class="intro-paragraph-image image-gg">
+                    <img src="HB.jpg" width="1000" height="320" style="margin-left: 0rem;" alt="other Image">
+                </div>
+                <div class="intro-paragraph-text">
+                    <p>Aviaq Johnston's captivating short story “The Haunted Blizzard” illuminated profound lessons about embracing ancestral
+                    wisdom and respecting the vulnerabilities of others. Following Panik’s harrowing experience during an ominous storm, I
+                    reflected deeply on my responsibilities as an outsider resident on these lands. Johnston skillfully conveyed the rich
+                    cultural knowledge held within Indigenous storytelling through Nita’s grandmother’s ominous warnings. Her dire pleas to
+                    “stay with us” and avoid isolation reflected a sincere duty to protect youth, exemplifying reverence for community.
+                    However, Panik’s mother expressed skepticism, symbolizing eroding respect for ancestral guidance. This juxtaposition
+                    underscores intergenerational divides in comprehending local realities.</p>
+                    <br />
+                    <p>Witnessing Panik’s sheer terror confronting manifestations of folklore highlighted empathy’s importance. Where adults
+                    dismiss “imagination,” children grasp multidimensional truths, as their minds remain open. Elders pass down intangible
+                    wisdoms ensuring resilience through adversity. Though uncertainty cloaked descriptions, spiritual teachings centered
+                    relational duties, prioritizing safety above individualism. This left a profound impression on cultivating care through
+                    uncertainty. Moving forward, I vow to follow Panik’s transforming outlook. Where skepticism once clouded my perspective,
+                    embracing humility means engaging Indigenous knowledge respectfully. Locally, this involves attentively listening to
+                    knowledge keepers about responsibilities regarding natural sites, seeking permission before accessing territories, and
+                    championing language/tradition revitalization.</p>
+                    <br/>
+                    <p>On a broader scale, it means recognizing oppression’s lasting impacts through generational trauma and advocating for
+                    clean waters, language laws, and missing persons inquiries. As an ally, I aim to integrate ancestral teachings
+                    respecting all relations into daily lives through plant-based diets, shifting industrial paradigms threatening Mother
+                    Earth, whose health sustains all equally. It further means looking not just at Indigenous cultures but society as a
+                    whole and realizing when I am being pressured or when I am not, or when my gut delivers that feeling of “stop” or when
+                    it doesn’t and so on and so forth. It also means seeing how life and my environment subconsciously affects me, and
+                    reflecting on that to improve my own personal skills and influence myself for the better Most importantly, it means
+                    cultivating profound reverence within relationships by acknowledging vulnerabilities, acknowledging one’s positionality,
+                    and strengthening community ties. Though challenges persist, focusing on interconnectivity between all peoples provides
+                    solace. This story powerfully illuminated pathways towards walking respectfully on these lands through reverence,
+                    resilience and relational duties.</p>
+                </div>
+            </div>
+
+            <!-- Add more sections as needed -->
+            <div class="intro-paragraph custom-css-left">
+                <div class="intro-paragraph-image left">
+                    <img src="TG.jpg" alt="other Image">
+                </div>
+                <div class="intro-paragraph-text">
+                    <p>The Grizzlies conveyed profound and impactful lessons about cultivating reverence that will guide my own journey of
+                    ReconciliACTION. Most prominently, I was struck by the transformative power of reconnecting youth to lost cultural roots
+                    through the lacrosse team. In those powerful redemption arcs, I witnessed how embracing ancestral teachings and
+                    traditions can lift spirits and redirect struggles towards achievement. Russ Shepherd's journey also left a deep
+                    impression. I was troubled by his initial dismissiveness but heartened by his evolution into a revered ally through
+                    listening, apologizing and championing students sincerely. This reinforced that cultivating reverence is an ongoing
+                    process requiring humility, compassion and championing others. It reinforced my commitment to approaching all
+                    relationships, whether face-to-face or online, with respect by acknowledging expertise, avoiding assumptions and
+                    prioritizing dignity.</p>
+                    <br />
+                    <p>This taught me the importance of strengthening communal bonds by celebrating cultural resurgence wherever possible
+                    through supporting Indigenous arts, business initiatives and language revitalization. On a personal level, it inspired
+                    me to further my own understanding by engaging local knowledge keepers to learn welcoming protocols and responsibilities
+                    as a newcomer on these lands. I want to foster reverence through embracing teachings that uplift rather than dismiss
+                    Indigenous sovereignty and identities. It also taught me not to see everything as black and white, i.e not to judge a
+                    book by its cover or in this case a community. On a more broader scale, I can use this to assist people who are going
+                    through tougher times by using a sport like lacrosse to help them out.</p>
+                    <br/>
+                    <p>In the future once I am older and have the allocated funds I can attempt to develop an interactive workshop/presentation
+                    for students/community groups highlighting key lessons from The Grizzlies and other authors and inviting discussion on
+                    developing cultural competence and embracing an ethos of reverence. Provide recommended resources for further learning.
+                    Overall, The Grizzlies underscored that true ReconciliACTION springs from within - through embracing responsibilities,
+                    acknowledging hardships without skepticism and nurturing communal wellness above individualism. It is a daily practice
+                    of learning, growing in humility and centering relationships rooted in care, empathy and reverence for shared humanity
+                    above perceived differences. I vow to walk this path through kindness, compassion and striving to honor all peoples.</p>
+                </div>
+            </div>
+
+            <div class="intro-paragraph custom-css-right">
+                <div class="intro-paragraph-image right">
+                    <img src="LC.jpg" width="900" height="400" alt="other Image">
+                </div>
+                <div class="intro-paragraph-text">
+                    <p>The literature circles provided a meaningful platform to cultivate profound reverence through authentic sharing and
+                    listening across diverse experiences. Being able to discuss impactful works like The Grizzlies, Those Who Run in the Sky
+                    and The Haunted Blizzard with peers unveiled deeper layers of wisdom I may have otherwise overlooked. Hearing different
+                    analyses enriched my perspective by acknowledging subjective truths. Discussing tensions like Pitu’s journey prompted
+                    critical self-reflection on my own blindspots and assumptions. Thought-provoking questions from others challenged
+                    preconceived notions and broadened understanding systemic oppression's intricate roots.By synthesizing takeaways, I
+                    gained nuanced insights into historical and contemporary impediments to wellness, like love and respect, or lack of
+                    sovereignty and cultural erasure. Accounting for sociopolitical contexts augmented personal connections to rich
+                    characters and storylines. This scaffolding supported comprehending multi-faceted hardship sensitively from an
+                    Indigenous lens.</p>
+                    <br />
+                    <p>Perhaps most impactfully, literature circles cultivated reverence on an interpersonal level. Witnessing resilience among
+                    struggling communities through others’ eyes motivated responsibility as an ally. These meaningful exchanges lit a fire within me to
+                    continuously challenge biases, embrace cultural consultations, research challenges respectfully and support grassroots
+                    organizations centered on indigenous visions of well-being. They empowered moving reconciliation from an theoretical
+                    concept into meaningful daily practice through relationship-centered living.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+<button class="vision-button" id="vision-button">Artist Vision Click Here</button>
+
+<div class="modal" id="modal"> <div class="modal-content"> <span class="close">&times;</span> <h2>My Vision for this website</h2> <hr> <div class="vision-text"> 
+    <p>
+My vision for this artifact was to create an engaging resource that would foster deeper understanding of Indigenous
+knowledge and lived experiences among learner audiences. Through multimedia storytelling and highlighting transformative
+themes, I hoped to inspire profound reflection on responsibilities as newcomers to these territories. It was important
+for me to authentically honor ancestral wisdoms while ensuring a respectful and accessible experience. I want
+individuals to come away feeling motivated to embrace reconciliation through cultivating empathy, championing
+sovereignty, building compassionate relations and championing wellness through small thoughtful actions.
+    </p> 
+
+    <br/>
+    <p>
+        In constructing this site, I carefully considered prominent lessons from course works like those symbolized through
+        characters' journeys towards reverence in The Grizzlies film and Johnston's novels. I included location profiles,
+        cultural videos, interactive activities and advocacy resources to holistically demonstrate reconciliation principles in
+        an interactive manner. The clean aesthetic aimed to prioritize messaging while subtly conveying responsibility. Drawing
+        from literature circle discussions, I incorporated diverse understandings around developing care through facing
+        hardship, reconnecting culture and traditions, acknowledging oppression's impacts and nurturing communal belonging
+        across differing perspectives. My goal was an experiential learning tool synthesizing how each individual truly embraces
+        responsibilities as newcomers through relationship-centered living.
+    </p>
+</div> 
+</div> 
+</div>
+
+    
+    <script>
+        // Add parallax scrolling effect to the main section
+        window.addEventListener('scroll', function () {
+            let mainSection = document.querySelector('main');
+            mainSection.style.transform = 'translateY(-' + window.scrollY * 2 + 'px)';
+        });
+
+        // Add blur effect to the header title
+        window.addEventListener('scroll', function () {
+            let headerTitle = document.querySelector('.header-description');
+            headerTitle.style.filter = 'blur(' + window.scrollY / 10 + 'px)';
+        });
+
+        // Get the intro section element
+        const introSection = document.querySelector('.intro');
+
+        // Set the intro section's height to the height of the viewport
+        introSection.style.height = window.innerHeight + 'px';
+
+        // Add an event listener for the window's resize event
+        window.addEventListener('resize', () => {
+            // Update the intro section's height when the window is resized
+            introSection.style.height = window.innerHeight + 'px';
+        });
+
+
+    const visionButton = document.getElementById("vision-button");
+    const modal = document.getElementById("modal");
+    const closeButton = document.querySelector(".close");
+
+    visionButton.addEventListener("click", function () {
+        modal.style.display = "block";
+    });
+
+    closeButton.addEventListener("click", function () {
+        modal.style.display = "none";
+    });
+
+    window.addEventListener("click", function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    });
+
+    // Add scrollbar customization
+    const scrollbar = document.querySelector('.vision-text');
+    const style = document.createElement('style');
+    style.innerHTML = `
+::-webkit-scrollbar {
+width: 10px;
+}
+
+::-webkit-scrollbar-track {
+background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+background-color: #ccc;
+border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background-color: #999;
+}
+`;
+    document.head.appendChild(style);
+
+    // Add an event listener to the vision button to toggle the modal and button display
+    visionButton.addEventListener("click", function () {
+        modal.style.display = "block";
+        visionButton.style.display = "none";
+    });
+
+    closeButton.addEventListener("click", function () {
+        modal.style.display = "none";
+        visionButton.style.display = "block";
+    });
+
+    window.addEventListener("click", function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            visionButton.style.display = "block";
+        }
+    });
+            
+    </script>
+</body>
+</html>
+
+
+
+
+
+    
